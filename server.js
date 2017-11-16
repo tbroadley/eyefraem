@@ -1,25 +1,19 @@
 const express = require('express');
 
-const app = express();
-
-const {
-  div,
-  h1,
-  p,
-  Component,
-} = require('./lib/generators');
 const middleware = require('./lib/middleware');
 
+const root = require('./components/root');
+const listItem = require('./components/list-item');
+const title = require('./components/title');
+const description = require('./components/description');
+
+const app = express();
+
 const components = {
-  root: ({ items }) => div(
-    items.map(item => Component('listItem', item))
-  ),
-  listItem: ({ title, description }) => div(
-    Component('title', title),
-    Component('description', description)
-  ),
-  title: title => h1(`Title: ${title}`),
-  description: description => (description ? p(`Description: ${description}`) : '')
+  root,
+  listItem,
+  title,
+  description,
 };
 
 app.use(middleware(components))
