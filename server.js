@@ -7,8 +7,8 @@ const {
   h1,
   p,
   Component,
-} = require('./generators');
-const middleware = require('./middleware');
+} = require('./lib/generators');
+const middleware = require('./lib/middleware');
 
 const components = {
   root: ({ items }) => div(
