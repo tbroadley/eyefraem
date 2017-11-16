@@ -16,21 +16,20 @@ const components = {
   description,
 };
 
-app.use(middleware(components))
-
-const defaultProps = {
-  items: [
-    {
-      title: 'First item',
-      description: '',
-    },
-    {
-      title: 'Second item',
-      description: 'I love eyefraem',
-    },
-  ],
-};
-
-app.get('/', (request, response) => response.redirect(`/root?props=${JSON.stringify(defaultProps)}`));
+app.use(middleware(components, {
+  defaultProps: {
+    items: [
+      {
+        title: 'First item',
+        description: '',
+      },
+      {
+        title: 'Second item',
+        description: 'I love eyefraem',
+      },
+    ],
+  },
+  root: 'root'
+}));
 
 app.listen(3000);
