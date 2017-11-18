@@ -4,7 +4,9 @@ const {
 } = require('../lib/generators');
 
 const listItem = {
+  cssFiles: ['index.css'],
   render: ({ title, description }) => div(
+    { className: 'list-item' },
     Component('title', { title }),
     Component('description', { description })
   ),

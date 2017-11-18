@@ -16,6 +16,8 @@ const components = {
   description,
 };
 
+app.use(express.static('public'));
+
 app.use(middleware(components, {
   defaultProps: {
     items: [
