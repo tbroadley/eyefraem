@@ -5,7 +5,7 @@ const {
 
 const root = {
   render: ({ items }) => div(
-    {},
+    { id: 'root' },
     items.map(item => Component('listItem', item))
   ),
   title: 'This is eyefraem',
