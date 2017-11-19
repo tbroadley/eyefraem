@@ -1,12 +1,14 @@
 const {
-  div,
+  button,
   Component,
+  div,
 } = require('../lib/generators');
 
 const root = {
-  render: ({ items }) => div(
+  render: ({ count }) => div(
     { id: 'root' },
-    items.map(item => Component('listItem', item))
+    Component('count', { count }),
+    Component('incrementButton', {})
   ),
   title: 'This is eyefraem',
 };
